@@ -68,4 +68,12 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  # 重複するemailはバリデーションで弾かれること
+  it 'email validation should reject duplicate address' do
+    user = create(:user)
+    duplicate_user = user.dup
+    duplicate_user.email = user.email.upcase
+    expect(duplicate_user).to be_invalid
+  end
 end
