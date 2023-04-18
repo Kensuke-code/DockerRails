@@ -77,7 +77,7 @@ RSpec.describe User, type: :model do
     expect(duplicate_user).to be_invalid
   end
 
-  # パスワードの最小文字数のテスト
+  # パスワードの最小文字数のバリデーション
   it 'password should have a minimum length' do
     user = create(:user)
     user.password = user.password_confirmation =  "a" * 5
